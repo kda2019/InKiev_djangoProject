@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="content-header">
+        <h1>Предложенные публичные события:</h1>
+    </div>
+    <div class="create-box">
+        <ul>
+            {% for i in events %}
+                <li><a href="/{{ i.get_class_name }}/{{ i.pk }}">{{ i.title }}</a>
+                    <ul>
+                        <li><a href="/unverified-public-events/add/{{ i.pk }}/">Добавить</a></li>
+                        <li><a href="/unverified-public-events/del/{{ i.pk }}/">Удалить</a></li>
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="create-box-menu">
+            {% if user.is_staff %}
+                {% include 'include/admin-panel.html' %}
+            {% else %}
+                {% include 'include/user-panel.html' %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

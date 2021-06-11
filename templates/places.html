@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="content-header">
+        <h1>Список интересных мест Киева:</h1>
+    </div>
+    <div class="places-list">
+        {% for i in places %}
+            <a href="/{{ i.get_class_name }}/{{ i.pk }}" class="place">
+                <div class="place-img">
+
+                </div>
+                <div class="place-body">
+                    <h1 class="place-short-title">{{ i.title }}</h1>
+                    <div class="place-short-info">
+                        {{ i.text }}
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}

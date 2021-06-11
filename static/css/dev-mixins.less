@@ -1,0 +1,53 @@
+.create-event-form-mixin {
+    form {
+        p {
+            label {
+                display: block;
+            }
+
+            input {
+                width: 400px;
+                height: 30px;
+                padding-left: 10px
+            }
+
+            textarea {
+                width: 400px;
+                resize: vertical;
+                min-height: 300px;
+                max-height: 1000px;
+                padding: 10px;
+            }
+        }
+    }
+}
+
+.ul-flex-menu-mixin(@space:20px) {
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    li {
+        margin-right: @space;
+
+        a {
+            font-size: 1.125rem;
+        }
+    }
+
+}
+
+.light-link-mixin {
+    color: white;
+
+    &:hover {
+        color: #ddd;
+    }
+}
+
+.dark-link-mixin {
+    color: black;
+
+    &:hover {
+        color: #444;
+    }
+}

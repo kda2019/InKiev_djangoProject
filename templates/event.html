@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="content-header">
+        <h1>{{ event.title }}</h1>
+        <h2>Начало: {{ event.start_time|date:'d.m.Y в H:i' }}</h2>
+        {% if user.is_staff %}
+            <p class="remove-post"><a href="/remove-post/{{ event.get_class_name }}/{{ event.pk }}">Убрать пост </a> (Публикацию все еще можно будет восстановить из панели администратора)</p>
+        {% endif %}
+    </div>
+    <div class="event-text">
+        {{ event.text|linebreaksbr }}
+    </div>
+    <hr>
+    <div class="comments">
+        <h2>Комментарии:</h2>
+
+        {% if comments %}
+            {% for c in comments %}
+                <div class="comment">
+                    <div class="comment-header">
+                        <p>{{ c.user.username }}</p>
+                        <p>{{ c.create|date:'d.m.Y - H:i' }}</p>
+                    </div>
+                    <p>{{ c.text }}</p>
+                    {% if user.is_authenticated %}
+                        <button class="reply-comment-btn">Ответить</button>
+                        {% if user.is_staff or c.user == user %}
+                            <button onclick="window.location.href = '/comment-remove/{{ c.pk }}';">Удалить</button>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <h3>Комментариев пока нет, будьте первым!</h3>
+        {% endif %}
+
+        <h3>Добавить комментарий:</h3>
+        {% if user.is_authenticated %}
+            <form action="" method="post">
+            <label>
+                <textarea name="comment" id="new-comment-field"></textarea>
+            </label>
+            <br>
+            <input type="submit" value="Отправить">
+            {% csrf_token %}
+        {% else %}
+            <h4> Для добавления нового комментария необходимо пройти авторизацию </h4>
+        {% endif %}
+        </form>
+    </div>
+{% endblock %}

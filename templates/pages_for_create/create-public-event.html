@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="content-header">
+        {% if user.is_staff %}
+            <h1>Создать публичное событие</h1>
+        {% else %}
+            <h1>Предложить публичное событие</h1>
+        {% endif %}
+    </div>
+    <div class="create-box">
+        <div class="create-event">
+            {% if message %}
+                <h2>{{ message }}</h2>
+            {% endif %}
+            <form action="/create-public-event/" method="post">
+                {{ form.as_p }}
+                <input type="submit">
+                {% csrf_token %}
+            </form>
+        </div>
+        <div class="create-box-menu">
+            {% if user.is_staff %}
+                {% include 'include/admin-panel.html' %}
+            {% else %}
+                {% include 'include/user-panel.html' %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

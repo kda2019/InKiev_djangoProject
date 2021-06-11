@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>InKiev</title>
+    <link href="{% static 'css/normalize.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/jquery.datetimepicker.min.css' %}" rel="stylesheet">
+</head>
+<body>
+<header class="header">
+    <div class="header-inner">
+        <div class="header-left">
+            <div class="header-logo">
+                <span>InKiev</span>
+            </div>
+            <ul class="header-menu">
+                <li><a href="/" class="light-link">Сегодня</a></li>
+                <li><a href="/Event" class="light-link">Публичноое</a></li>
+                <li><a href="/PrivateEvent" class="light-link">Частное</a></li>
+                <li><a href="/Place" class="light-link">Интересные места</a></li>
+            </ul>
+
+        </div>
+        <ul class="header-auth">
+            {% if not user.is_authenticated %}
+                <li><a href="#" id="header-login" class="light-link">Логин</a></li>
+                <li><a href="#" id="header-register" class="light-link">Регистрация</a></li>
+            {% else %}
+                <li><a href="/create-private-event" class="light-link">Добавить событие</a></li>
+                <li><a href="/auth/logout" class="header-logout light-link">Выйти</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</header>
+<main>
+    <div class="content">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+</main>
+<footer>
+    <p class="footer-text">&copy Дмитрий Кравченко &nbsp Телефон: +380991668726</p>
+</footer>
+<div id="under-popup">
+    <div id="popup-login">
+
+    </div>
+    {% if not user.is_authenticated %}
+        <div id="popup-register">
+
+        </div>
+    {% endif %}
+</div>
+{% csrf_token %}
+<script src="{% static "js/jquery-min.js" %}"></script>
+<script src="{% static "js/jquery.datetimepicker.full.js" %}"></script>
+<script src="{% static "js/script.js" %}"></script>
+
+</body>
+
+</html>

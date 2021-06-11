@@ -1,0 +1,10 @@
+<div class="popup-login-title">Welcome</div>
+<div class="popup-login-logo">INKIEV</div>
+<form action="/auth/login/" method="post" class="popup-login-form">
+    {% csrf_token %}
+    <span>{{ form.username.label }}</span>
+    <input type="text" name="login" id="popup-login-form-login">
+    <span>{{ form.password.label }}</span>
+    <input type="password" name="password" id="popup-login-form-password">
+    <button id="popup-login-form-send">Войти</button>
+</form>

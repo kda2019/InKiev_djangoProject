@@ -1,0 +1,355 @@
+.create-event-form-mixin form p label {
+  display: block;
+}
+.create-event-form-mixin form p input {
+  width: 400px;
+  height: 30px;
+  padding-left: 10px;
+}
+.create-event-form-mixin form p textarea {
+  width: 400px;
+  resize: vertical;
+  min-height: 300px;
+  max-height: 1000px;
+  padding: 10px;
+}
+.light-link-mixin {
+  color: white;
+}
+.light-link-mixin:hover {
+  color: #ddd;
+}
+.dark-link-mixin {
+  color: black;
+}
+.dark-link-mixin:hover {
+  color: #444;
+}
+@font-face {
+  font-family: 'Bebas Neue Bold';
+  src: url('../fonts/bebas_neue_bold.eot');
+  /* IE 9 Compatibility Mode */
+  src: url('../fonts/bebas_neue_bold.eot?#iefix') format('embedded-opentype'), /* IE < 9 */ url('../fonts/bebas_neue_bold.woff2') format('woff2'), /* Super Modern Browsers */ url('../fonts/bebas_neue_bold.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */ url('../fonts/bebas_neue_bold.ttf') format('truetype'), /* Safari, Android, iOS */ url('../fonts/bebas_neue_bold.svg#bebas_neue_bold') format('svg');
+  /* Chrome < 4, Legacy iOS */
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: robotoregular, Roboto, Arial, Helvetica, sans-serif;
+  line-height: 1.42;
+}
+a {
+  text-decoration: none;
+}
+a.light-link {
+  color: white;
+}
+a.light-link:hover {
+  color: #ddd;
+}
+a.dark-link {
+  color: black;
+}
+a.dark-link:hover {
+  color: #444;
+}
+.header {
+  height: 90px;
+  width: 100%;
+  background: #ec174d;
+}
+.header .header-inner {
+  padding: 0 15px 0 15px;
+  margin: 0 auto 0 auto;
+  display: flex;
+  height: 100%;
+  max-width: 1440px;
+  justify-content: space-between;
+}
+.header .header-inner .header-left {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.header .header-inner .header-left .header-logo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 150px;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.header .header-inner .header-left .header-logo span {
+  color: white;
+  font-size: 42px;
+  padding-bottom: 5px;
+  font-family: 'Bebas Neue Bold', sans-serif;
+}
+.header .header-inner .header-left ul.header-menu {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  margin-left: 30px;
+}
+.header .header-inner .header-left ul.header-menu li {
+  margin-right: 18px;
+}
+.header .header-inner .header-left ul.header-menu li a {
+  font-size: 1.125rem;
+}
+.header .header-inner ul.header-auth {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  margin: 0 30px 0 30px;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+.header .header-inner ul.header-auth li {
+  margin-right: 18px;
+}
+.header .header-inner ul.header-auth li a {
+  font-size: 1.125rem;
+}
+.content {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1190px;
+  background: #f8f8f8;
+  min-height: calc(100vh - 156px);
+  padding: 50px 15px 1px 15px;
+}
+.content .content-header {
+  padding: 0 15px 0 10px;
+}
+.content .content-header .remove-post a {
+  color: red;
+  font-size: 110%;
+}
+.content .content-header .remove-post a:hover {
+  color: darkred;
+}
+.content .event-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto 0 auto;
+  min-width: 300px;
+  justify-content: flex-start;
+}
+.content .event-list .no_events {
+  margin: auto;
+}
+.content .event-list .event {
+  background: #50f5e8;
+  width: 270px;
+  height: 460px;
+  margin: 0 10px 20px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.content .event-list .event:hover {
+  background-color: #70ffff;
+  transition: 0.3s ease-in-out;
+}
+.content .event-list .event .event-container-starttime,
+.content .event-list .event .event-container-title {
+  max-width: 100%;
+  color: black;
+  font-size: 30px;
+  padding: 0 15px 50px 15px;
+  text-align: center;
+  word-wrap: break-word;
+}
+.content .event-list .event .event-container-starttime {
+  font-size: 20px;
+}
+.content .places-list {
+  padding-bottom: 1px;
+}
+.content .place {
+  background: #50f5e8;
+  height: 200px;
+  margin: 0 10px 20px 10px;
+  display: flex;
+  color: black;
+}
+.content .place:hover {
+  background-color: #70ffff;
+  transition: 0.3s ease-in-out;
+}
+.content .place .place-img {
+  min-width: 200px;
+  width: 200px;
+  height: 200px;
+  margin-right: 15px;
+}
+.content .place .place-body {
+  padding-right: 20px;
+  color: black;
+}
+.content .place .place-body .place-short-title {
+  margin: 15px 0 15px 0;
+}
+.content .place .place-body .place-short-info {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.content .event-text,
+.content .place-text {
+  margin: 50px 10px 50px 10px;
+  font-size: 20px;
+}
+.content .comments {
+  margin-left: 10px;
+}
+.content .comments .comment {
+  margin-bottom: 30px;
+}
+.content .comments .comment .comment-header {
+  display: flex;
+  gap: 30px;
+}
+.content .comments .comment .comment-header p {
+  margin-bottom: 0;
+}
+.content .comments #new-comment-field {
+  width: 80%;
+  resize: vertical;
+  min-height: 200px;
+  max-height: 800px;
+  padding: 15px;
+}
+.content .create-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.content .create-box .create-place,
+.content .create-box .create-event {
+  margin-left: 10px;
+}
+.content .create-box .create-place form p label,
+.content .create-box .create-event form p label {
+  display: block;
+}
+.content .create-box .create-place form p input,
+.content .create-box .create-event form p input {
+  width: 400px;
+  height: 30px;
+  padding-left: 10px;
+}
+.content .create-box .create-place form p textarea,
+.content .create-box .create-event form p textarea {
+  width: 400px;
+  resize: vertical;
+  min-height: 300px;
+  max-height: 1000px;
+  padding: 10px;
+}
+.content .create-box .create-box-menu {
+  width: 300px;
+  background-color: #ec174d;
+  color: white;
+  font-size: 120%;
+  border-radius: 10px;
+  padding-bottom: 35px;
+}
+.content .create-box .create-box-menu h2 {
+  text-align: center;
+}
+.content .create-box .create-box-menu a {
+  color: white;
+}
+.content .create-box .create-box-menu a:hover {
+  color: #ddd;
+}
+.content .create-box .create-box-menu p {
+  margin-left: 23px;
+}
+footer {
+  height: 50px;
+  width: 100%;
+  background: #FFA69E;
+}
+footer .footer-text {
+  padding-top: 13px;
+  text-align: center;
+}
+#under-popup {
+  height: 100vh;
+  width: 100%;
+  z-index: 99;
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(50, 50, 50, 0.8);
+}
+#under-popup #popup-login,
+#under-popup #popup-register {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 50vh;
+  font-size: 2.5vh;
+  padding: 6% 4% 3% 4%;
+  background-color: white;
+  border-radius: 1vh;
+  display: none;
+}
+#under-popup #popup-login .popup-login-title,
+#under-popup #popup-register .popup-register-title {
+  font-size: 5vh;
+  color: #333;
+  line-height: 1.2;
+  text-align: center;
+}
+#under-popup #popup-login .popup-login-logo,
+#under-popup #popup-register .popup-register-logo {
+  text-align: center;
+  color: #ec174d;
+  font-size: 12.5vh;
+  padding-bottom: 0.5vh;
+  font-family: 'Bebas Neue Bold', sans-serif;
+}
+#under-popup #popup-login .popup-login-form,
+#under-popup #popup-register .popup-register-form {
+  margin-top: 2vh;
+}
+#under-popup #popup-login .popup-login-form input,
+#under-popup #popup-register .popup-register-form input {
+  width: 100%;
+  margin-bottom: 5vh;
+  border: 0;
+  border-bottom: 0.1vh solid black;
+}
+#under-popup #popup-login .popup-login-form input:focus,
+#under-popup #popup-register .popup-register-form input:focus {
+  box-sizing: border-box;
+  outline: none;
+  border-bottom: 0.1vh solid #ec174d;
+  transition: 0.2s;
+}
+#under-popup #popup-login .popup-login-form #popup-login-form-send,
+#under-popup #popup-register .popup-register-form #popup-register-form-send {
+  width: 11vh;
+  height: 4vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#under-popup #popup-register {
+  padding-top: 3%;
+}
+#under-popup #popup-register .popup-register-form #popup-register-form-send {
+  width: 16vh;
+}

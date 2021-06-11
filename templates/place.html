@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content-header">
+    <h1>{{ place.title }}</h1>
+    {% if user.is_staff %}
+        <p class="remove-post"><a href="/remove-post/{{ place.get_class_name }}/{{ place.pk }}">Убрать пост </a> (Публикацию все еще можно будет восстановить из панели администратора)</p>
+    {% endif %}
+</div>
+<div class="place-text">
+    {{ place.text|linebreaksbr }}
+</div>
+{% endblock %}

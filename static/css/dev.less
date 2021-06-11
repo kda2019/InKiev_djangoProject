@@ -1,0 +1,355 @@
+@import "dev-mixins";
+
+@font-face {
+    font-family: 'Bebas Neue Bold';
+    src: url('../fonts/bebas_neue_bold.eot'); /* IE 9 Compatibility Mode */
+    src: url('../fonts/bebas_neue_bold.eot?#iefix') format('embedded-opentype'), /* IE < 9 */ url('../fonts/bebas_neue_bold.woff2') format('woff2'), /* Super Modern Browsers */ url('../fonts/bebas_neue_bold.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */ url('../fonts/bebas_neue_bold.ttf') format('truetype'), /* Safari, Android, iOS */ url('../fonts/bebas_neue_bold.svg#bebas_neue_bold') format('svg'); /* Chrome < 4, Legacy iOS */
+}
+
+@bg-color-1: #ec174d;
+@bg-color-2: #50f5e8;
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: robotoregular, Roboto, Arial, Helvetica, sans-serif;
+    line-height: 1.42;
+}
+
+a {
+    text-decoration: none;
+
+    &.light-link{
+        .light-link-mixin();
+    }
+    &.dark-link{
+        .dark-link-mixin();
+    }
+}
+
+.header {
+    height: 90px;
+    width: 100%;
+    background: @bg-color-1;
+
+    .header-inner {
+        padding: 0 15px 0 15px;
+        margin: 0 auto 0 auto;
+        display: flex;
+        height: 100%;
+        max-width: 1440px;
+        justify-content: space-between;
+
+        .header-left {
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            .header-logo {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                height: 100%;
+                width: 150px;
+                -moz-user-select: none;
+                -webkit-user-select: none;
+                user-select: none;
+
+                span {
+                    color: white;
+                    font-size: 42px;
+                    padding-bottom: 5px;
+                    font-family: 'Bebas Neue Bold', sans-serif;
+                }
+            }
+
+
+            ul.header-menu {
+                .ul-flex-menu-mixin(18px);
+                margin-left: 30px;
+            }
+
+        }
+
+        ul.header-auth {
+            .ul-flex-menu-mixin(18px);
+            margin: 0 30px 0 30px;
+            justify-content: space-around;
+            align-items: center;
+            height: 100%;
+
+        }
+    }
+}
+
+.content {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1190px;
+    background: #f8f8f8;
+    min-height: calc(100vh - 156px);
+    padding: 50px 15px 1px 15px;
+
+    .content-header {
+        padding: 0 15px 0 10px;
+        .remove-post{
+            a{
+                color: red;
+                font-size: 110%;
+                &:hover{
+                    color: darkred;
+                }
+            }
+        }
+    }
+
+    .event-list {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto 0 auto;
+        min-width: 300px;
+        justify-content: flex-start;
+
+        .no_events {
+            margin: auto;
+        }
+
+        .event {
+            background: @bg-color-2;
+            width: 270px;
+            height: 460px;
+            margin: 0 10px 20px 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            &:hover {
+                background-color: @bg-color-2 + #202020;
+                transition: .3s ease-in-out;
+            }
+
+            .event-container-starttime,
+            .event-container-title {
+                max-width: 100%;
+                color: black;
+                font-size: 30px;
+                padding: 0 15px 50px 15px;
+                text-align: center;
+                word-wrap: break-word;
+            }
+
+            .event-container-starttime {
+                font-size: 20px;
+            }
+        }
+    }
+
+    .places-list {
+        padding-bottom: 1px;
+    }
+
+    .place {
+        background: @bg-color-2;
+        height: 200px;
+        margin: 0 10px 20px 10px;
+        display: flex;
+        color: black;
+
+        &:hover {
+            background-color: @bg-color-2 + #202020;
+            transition: .3s ease-in-out;
+        }
+
+        .place-img {
+            min-width: 200px;
+            width: 200px;
+            height: 200px;
+            margin-right: 15px;
+        }
+
+        .place-body {
+            padding-right: 20px;
+            color: black;
+
+            .place-short-title {
+                margin: 15px 0 15px 0;
+            }
+
+            .place-short-info {
+                overflow-wrap: break-word;
+                word-break: break-word;
+            }
+        }
+    }
+
+    .event-text,
+    .place-text {
+        margin: 50px 10px 50px 10px;
+        font-size: 20px;
+    }
+
+    .comments {
+        margin-left: 10px;
+
+        .comment {
+            margin-bottom: 30px;
+
+            .comment-header {
+                display: flex;
+                gap: 30px;
+
+                p {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        #new-comment-field {
+            width: 80%;
+            resize: vertical;
+            min-height: 200px;
+            max-height: 800px;
+            padding: 15px;
+        }
+    }
+
+    .create-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        .create-place,
+        .create-event {
+            margin-left: 10px;
+            .create-event-form-mixin()
+        }
+        .create-box-menu{
+            width: 300px;
+            background-color: @bg-color-1;
+            color: white;
+            font-size: 120%;
+            border-radius: 10px;
+            padding-bottom: 35px;
+            h2{
+                text-align: center;
+            }
+            a{
+                .light-link-mixin()
+            }
+            p{
+                margin-left: 23px;
+            }
+        }
+    }
+
+}
+
+footer {
+    height: 50px;
+    width: 100%;
+    background: #FFA69E;
+
+    .footer-text {
+        padding-top: 13px;
+        text-align: center;
+    }
+}
+
+#under-popup {
+    height: 100vh;
+    width: 100%;
+    z-index: 99;
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(50, 50, 50, 0.8);
+
+
+    #popup-login {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 80vh;
+        width: 50vh;
+        font-size: 2.5vh;
+        padding: 6% 4% 3% 4%;
+        background-color: white;
+        border-radius: 1vh;
+        display: none;
+
+        .popup-login-title {
+            font-size: 5vh;
+            color: #333;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        .popup-login-logo {
+            text-align: center;
+            color: #ec174d;
+            font-size: 12.5vh;
+            padding-bottom: 0.5vh;
+            font-family: 'Bebas Neue Bold', sans-serif;
+        }
+
+        .popup-login-form {
+            margin-top: 2vh;
+
+            input {
+                width: 100%;
+                margin-bottom: 5vh;
+                border: 0;
+                border-bottom: 0.1vh solid black;
+
+                &:focus {
+                    box-sizing: border-box;
+                    outline: none;
+                    border-bottom: 0.1vh solid #ec174d;
+                    transition: 0.2s;
+                }
+            }
+
+            #popup-login-form-send {
+                width: 11vh;
+                height: 4vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+
+    #popup-register {
+        &:extend(#under-popup #popup-login);
+        padding-top: 3%;
+
+        .popup-register-title {
+            &:extend(#under-popup #popup-login .popup-login-title);
+        }
+
+        .popup-register-logo {
+            &:extend(#under-popup #popup-login .popup-login-logo);
+        }
+
+        .popup-register-form {
+            &:extend(#under-popup #popup-login .popup-login-form);
+
+            input {
+                &:extend(#under-popup #popup-login .popup-login-form input);
+
+                &:focus {
+                    &:extend(#under-popup #popup-login .popup-login-form input:focus);
+                }
+            }
+
+            #popup-register-form-send {
+                &:extend(#under-popup #popup-login .popup-login-form #popup-login-form-send);
+                width: 16vh;
+            }
+        }
+    }
+}

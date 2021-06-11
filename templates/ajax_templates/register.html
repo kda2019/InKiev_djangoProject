@@ -1,0 +1,15 @@
+<div class="popup-register-title">Welcome</div>
+<div class="popup-register-logo">INKIEV</div>
+<form action="/auth/register" method="post" class="popup-register-form">
+    {% csrf_token %}
+    <label for="popup-register-form-login">{{ form.username.label }}</label>
+    <input type="text" name="login" id="popup-register-form-login" minlength="4" maxlength="20">
+
+    <label for="popup-register-form-password1">{{ form.password1.label }}</label>
+    <input type="password" name="pass1" id="popup-register-form-password1" minlength="6">
+
+    <label for="popup-register-form-password2">{{ form.password2.label }}</label>
+    <input type="password" name="pass2" id="popup-register-form-password2" minlength="6">
+
+    <button id="popup-register-form-send">Подтвердить</button>
+</form>
